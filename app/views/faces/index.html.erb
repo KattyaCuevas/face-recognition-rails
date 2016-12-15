@@ -1,13 +1,31 @@
 <h1>Face detection</h1>
-<p> Status: <%= @faces["status"] %> </p>
-<p> Faces: <%= @faces["photos"].count %> </p>
-
-
-<% @faces["photos"].each do |url| %>
-  <div class="photo">
-    <%= image_tag url["url"] %>
-  <% url["tags"].each do |photo| %>
-    <div><%= photo %></div>
-  <% end %>
-  </div>
+<%= form_tag recognize_path, multipart: true do %>
+  <%= file_field_tag 'pic', id: 'newImage' %>
+  <%= submit_tag 'ENVIAR' %>
 <% end %>
+<div class="">
+  Rostros encontrados
+  <ul>
+    <% @faces.each do |face| %>
+      <li><%= face %></li>
+    <% end %>
+  </ul>
+  <img id="preview" src="#" alt="your image" />
+</div>
+<script>
+  $('#preview').hide();
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#preview').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#newImage").change(function(){
+    $('#preview').show();
+    readURL(this);
+  });
+</script>

@@ -1,5 +1,5 @@
 require 'face'
-client = Face.get_client(api_key: 'ea79e06c9c154896b7fcd443485a9b85', api_secret: '410acf4112af410e9f2106319e501427')
+client = Face.get_client(api_key: ENV['API_KEY'], api_secret: ENV['API_SECRET'])
 image_urls = [
   'https://skybiometry.com/wp-content/uploads/2015/09/eva-2ppl-web-1-e1451908961635.jpg',
   'https://skybiometry.com/wp-content/uploads/2016/01/recognition-2nd-e1451908699204.jpg',

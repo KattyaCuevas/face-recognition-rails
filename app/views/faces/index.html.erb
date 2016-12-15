@@ -7,25 +7,7 @@
   <div class="photo">
     <%= image_tag url["url"] %>
   <% url["tags"].each do |photo| %>
-    <%= photo["recognizable"] %>
-
-
-      <% x = photo["eye_left"]["x"]*url["width"]/100 %>
-      <% y = photo["eye_left"]["y"]*url["height"]/100 %>
-      <span class="pointer" style="top:<%= y %>px; left:<%= x %>px;"></span>
-
-      <% x = photo["eye_right"]["x"]*url["width"]/100 %>
-      <% y = photo["eye_right"]["y"]*url["height"]/100 %>
-      <span class="pointer" style="top:<%= y %>px; left:<%= x %>px;"></span>
-
-      <% x = photo["mouth_center"]["x"]*url["width"]/100 %>
-      <% y = photo["mouth_center"]["y"]*url["height"]/100 %>
-      <span class="pointer" style="top:<%= y %>px; left:<%= x %>px;"></span>
-
-      <% x = photo["nose"]["x"]*url["width"]/100 %>
-      <% y = photo["nose"]["y"]*url["height"]/100 %>
-      <span class="pointer" style="top:<%= y %>px; left:<%= x %>px;"></span>
-
+    <div><%= photo %></div>
   <% end %>
   </div>
 <% end %>
